@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Pose-Robust Calibration Strategy for
+        Point-of-Gaze Estimation on Mobile Phones">
+  <meta name="keywords" content="Point-of-Gaze Estimation, Calibration">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pose-Robust Calibration Strategy for Point-of-Gaze Estimation on Mobile Phones</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/logo.png">
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Pose-Robust Calibration Strategy for Point-of-Gaze Estimation on Mobile Phones</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://github.com/ZhaoYujie2002">Yujie Zhao</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=N9elZDYAAAAJ&hl=zh-CN">Jiabei Zeng</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com.hk/citations?user=Vkzd7MIAAAAJ&hl=en">Shiguang Shan</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Institute of Computing Technology, Chinese Academy of Sciences,</span>
+            <br>
+            <span class="author-block"><sup>2</sup>University of Chinese Academy of Sciences</span>
+          </div>
+          
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><font color="red"><b>Accepted to BMVC 2025</b></font></span>
+          </div>
+          
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper (Coming Soon)</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!--
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ZhaoYujie2002/MobilePoG"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1grBOkbJAagurywGrlmcRDuCQ0F-_1vAR?usp=sharing"
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fas fa-cloud"></i>
+                 </span>
+                 <span>Model</span>
+                 </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/HomieZ/MobilePoG"
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fas fa-smile"></i>
+                 </span>
+                 <span>Dataset</span>
+                 </a>
+              </span>
+              <!--
+                <span class="link-block">
+                <a href="https://drive.google.com/drive/folders/1qcBxcjtgsKq7a5rJUkLxB85usBKB8B4g"
+                  class="external-link button is-normal is-rounded is-dark">
+                 <span class="icon">
+                     <i class="fas fa-database"></i>
+                 </span>
+                 <span>Model</span>
+                 </a>
+              </span>
+              -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <!-- <p>
+            <b>TL;DR:</b> We ground CLIP features into a set of 3D language Gaussians, which attains precise 3D language fields while being <font color="red"><b>199 &times;</b></font> faster than LERF.
+          </p> -->
+          <p>
+            <b>TL;DR:</b> We introduce MobilePoG, a benchmark for evaluating point-of-gaze calibration, and propose a user-friendly dynamic calibration strategy which is robust to pose variation.
+          </p>
+        </div>
+        <!--
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/KBz8lVPt7z4"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        -->
+        <div class="tesear" style="text-align: center;">
+          <img src="./static/images/new_teaser_v2.png" style="width: 100%; height: auto;"/>
+        </div>
+        <!-- TODO:Video -->
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Although appearance-based point-of-gaze (PoG) estimation has improved,  the estimators still struggle to generalize across individuals due to personal differences. Therefore, person-specific calibration is required for accurate PoG estimation. However, calibrated PoG estimators are often sensitive to head pose variations. 
+            To address this, we investigate the key factors influencing calibrated estimators and explore pose-robust calibration strategies. 
+            Specifically,  we first construct a benchmark, MobilePoG, which includes facial images from 32 individuals focusing on designated points under either fixed or continuously changing head poses. Using this benchmark, we systematically analyze how the diversity of calibration points and head poses influences estimation accuracy.
+            Our experiments show that introducing a wider range of head poses during calibration improves the estimator’s ability to handle pose variation. 
+            Building on this insight, we propose a dynamic calibration strategy in which users fixate on calibration points while moving their phones. 
+            This strategy naturally introduces head pose variation during a user-friendly and efficient calibration process, ultimately producing a better calibrated PoG estimator that is less sensitive to head pose variations than those using conventional calibration strategies.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">MobilePoG: A New Benchmark for Personalized PoG Calibration</h3>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/dataset_pipeline.png" style="width: 100%; height: auto;"/>
+          <p style="font-size:16px; color:black;">Figure 1: Pipeline of dataset collection.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            We introduce MobilePoG, a new phone-based PoG dataset that captures facial images of users when they are fixating
+            on predefined points under either fixed or continuously changing head poses. MobilePoG
+            enables the simulation of diverse calibration scenarios, serving as a benchmark for evaluating
+            calibration strategies and analyzing influential factors systematically.
+            Figure 1 shows collection pipeline of MobilePoG.
+          </p>
+        </div>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/more_examples_static.png" style="width: 100%; height: auto;"//>
+          <p style="font-size:16px; color:black;">Figure 2: Examples of Static-MobilePoG.</p>
+        </div>
+        <div class="hero-body" style="text-align: center;"> 
+          <img src="./static/images/more_examples_dynamic.png" style="width: 100%; height: auto;"//>
+          <p style="font-size:16px; color:black;">Figure 3: Examples of Dynamic-MobilePoG.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Figure 2 shows
+            some examples from Static-MobilePoG, which contains 12 types of static head poses. Figure 3 shows some examples from Dynamic-MobilePoG, which has continuously varying
+            head pose in the frame sequences. It can be observed that the MobilePoG dataset exhibits
+            rich head pose diversity, making it well-suited for evaluating a model’s robustness to head
+            pose variations under different experimental settings.
+          </p>
+        </div>
+        <h3 class="title is-4">Factor Analysis of Personalized PoG Calibration</h3>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/smpg_exp1.png"/>
+          <p style="font-size:16px; color:black;">Table 1: Results of a single calibration head pose and different numbers of calibration points
+            on Static-MobilePoG.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Table 1 reports the performance of calibrated estimators based on samples collected under a single head pose.
+            The results clearly indicate that calibration based on monotonous head pose samples fails to generalize to varying head poses. Thus, incorporating pose diversity in the calibration
+            data is essential for achieving robust and reliable PoG estimation in real-world scenarios.
+          </p>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/pog_vs_pose_v2.png"/>
+          <p style="font-size:16px; color:black;">Figure 4: Comparison of increasing calibration points and head poses in calibration samples.
+            (a) shows increasing points with a single head pose. (b) shows increasing head poses with
+            one point. (c) shows increasing head poses with five points.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Figure 4 illustrates how the average error of the calibrated estimator changes with increasing numbers of calibration points and head poses in the calibration samples.
+            The results strongly suggest that head pose diversity is a critical factor in personalized
+            calibration. Incorporating varied head poses into calibration samples substantially enhances
+            the generalization ability of calibrated estimators and should be prioritized when designing
+            practical calibration strategies.
+          </p>
+        </div>
+        <h3 class="title is-4">Pose-Robust Calibration Strategy</h3>
+        <p>
+          As shown in Figure 1 (b), we propose a new dynamic calibration strategy. For each calibration PoG, the user just needs to rotate and translate the mobile phone within a range
+          while keeping gaze at the PoG, which not only allows for the collection of calibration samples with sufficiently diverse head poses, but is also user-friendly and easy to operate on mobile devices.
+        </p>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/dmpg_exp.png"/>
+          <p style="font-size:16px; color:black;">Table 2: Comparison of the static and the dynamic strategy on Dynamic-MobilePoG.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Table 2 reports the
+            errors of the calibrated estimators using various configurations (i.e., two models, four calibration algorithms, and four different numbers of calibration points) under the static and the
+            dynamic strategy.
+            The above experimental results
+            demonstrate that the dynamic strategy, which is capable of collecting calibration samples
+            with rich pose diversity, significantly enhances the robustness of the model after calibration.
+          </p>
+        <div class="hero-body" style="text-align: center;">
+          <img src="./static/images/stable.png"/>
+          <p style="font-size:16px; color:black;">Figure 5: Calibration stability of the static and the dynamic strategy.</p>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Figure 5 shows the performance of iTracker and AFFNet during calibration using Finetune MLP and Full Finetune across different epochs. 
+            With our proposed dynamic strategy, the person-specific estimator exhibits not only excellent but also
+            stable performance, enabling efficient personalized PoG calibration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+
+    </code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <!-- <p>
+            The souce code is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">nerfies</a>,
+              we thank the authors for sharing the templates.
+          </p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
